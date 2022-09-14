@@ -17,4 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('category', App\Http\Controllers\CategoryController::class);
+Route::get(
+    'category',
+    [App\Http\Controllers\CategoryController::class, 'index']
+)->name('category.index');
+
+Route::get(
+    'createcategory',
+    [App\Http\Controllers\CategoryController::class, 'create']
+)->name('category.create');

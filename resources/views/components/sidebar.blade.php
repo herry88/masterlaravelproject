@@ -15,7 +15,7 @@
             <a href="#" class="nav-link has-dropdown">
                 <i class="fas fa-fire"></i><span>Data Master</span></a>
             <ul class="dropdown-menu">
-                <li><a href="#" class="nav-link">Data Kategori</a></li>
+                <li><a href="{{ route('category.index') }}" class="nav-link">Data Kategori</a></li>
             </ul>
 
         </li>
