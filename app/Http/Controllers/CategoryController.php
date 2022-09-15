@@ -38,6 +38,15 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        //validasi
+        $this->validate($request, [
+            'nmcategory' => 'required',
+            'deskripsi' => 'required'
+        ]);
+        //$_POST['nmcategory'] $_POST['deskripsi']
+        // $input = $request->all();
+        $category = new Category;
+        $category->nmcategory  = $request->input('nmcategory');
     }
 
     /**

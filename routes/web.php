@@ -26,3 +26,8 @@ Route::get(
     'createcategory',
     [App\Http\Controllers\CategoryController::class, 'create']
 )->name('category.create');
+
+Route::post(
+    'savecategory',
+    [\App\Http\Controllers\CategoryController::class, 'store']
+)->name('category.store');
