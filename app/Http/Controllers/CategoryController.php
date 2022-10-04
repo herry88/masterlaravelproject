@@ -15,7 +15,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        return view('category.index');
+        $category = Category::all();
+        return view('category.index', compact('category'));
     }
 
     /**
@@ -38,6 +39,21 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        //validasi
+        $this->validate($request, [
+            'nmcategory' => 'required',
+            'deskripsi' => 'required'
+        ]);
+        //$_POST['nmcategory'] $_POST['deskripsi']
+        // $input = $request->all();
+        $category = new Category;
+        $category->nmcategory  = $request->input('nmcategory');
+        $category->deskripsi = $request->input('deskripsi');
+        if ($category->save()) {
+            return redirect()->route('category.index');
+        } else{
+            return redirect()->back();
+        }
     }
 
     /**
@@ -57,9 +73,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
         //
+        $category = Category::find($id);
+        return view('category.edit', compact('category'));
     }
 
     /**
@@ -69,9 +87,17 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
         //
+        $category = Category::find($id);
+        $category->nmcategory = $request->input('nmcategory');
+        $category->deskripsi = $request->input('deskripsi');
+        if ($category->save()) {
+            return redirect()->route('category.index');
+        } else {
+            return redirect()->back()->withErrorMessage('Data Gagal Diubah');
+        }
     }
 
     /**

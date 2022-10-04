@@ -26,3 +26,20 @@ Route::get(
     'createcategory',
     [App\Http\Controllers\CategoryController::class, 'create']
 )->name('category.create');
+
+Route::post(
+    'savecategory',
+    [\App\Http\Controllers\CategoryController::class, 'store']
+)->name('category.store');
+
+Route::get('edit/category/{id}',
+[\App\Http\Controllers\CategoryController::class,'edit']
+)->name('category.edit');
+
+Route::post('edit/category/{id}',
+[\App\Http\Controllers\CategoryController::class,'update']
+)->name('category.update');
+
+Route::get('category/destroy/{id}',
+ [\App\Http\Controllers\CategoryController::class,'destroy']
+)->name('category.destroy');
