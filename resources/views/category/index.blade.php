@@ -18,9 +18,23 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Nama Kategori</th>
+                                    <th>Deskripsi</th>
                                     <th>Tools</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                @foreach ($category as $item)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->nmcategory }}</td>
+                                        <td>{{ $item->deskripsi }}</td>
+                                        <td><a href="{{ route('category.edit', $item->id) }}" class="btn btn-warning"><i
+                                                    class="fas fa-edit"></i>Edit</a>
+                                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>
