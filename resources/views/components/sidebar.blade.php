@@ -16,6 +16,8 @@
                 <i class="fas fa-fire"></i><span>Data Master</span></a>
             <ul class="dropdown-menu">
                 <li><a href="{{ route('category.index') }}" class="nav-link">Data Kategori</a></li>
+                <li><a href="{{ route('product.index') }}" class="nav-link">Data Produk</a></li>
+
             </ul>
 
         </li>

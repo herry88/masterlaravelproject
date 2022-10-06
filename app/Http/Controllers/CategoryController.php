@@ -106,8 +106,14 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
         //
+        $category = Category::find($id);
+        if ($category->delete()) {
+            return redirect()->route('category.index');
+        } else {
+            return redirect()->back();
+        }
     }
 }

@@ -23,18 +23,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($category as $item)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nmcategory }}</td>
-                                        <td>{{ $item->deskripsi }}</td>
-                                        <td><a href="{{ route('category.edit', $item->id) }}" class="btn btn-warning"><i
-                                                    class="fas fa-edit"></i>Edit</a>
-                                            <a href="{{ route('category.destroy', $item->id) }}" class="btn btn-danger"><i
-                                                    class="fas fa-trash"></i> Hapus</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+
                             </tbody>
                         </table>
                     </div>

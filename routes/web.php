@@ -43,3 +43,5 @@ Route::post('edit/category/{id}',
 Route::get('category/destroy/{id}',
  [\App\Http\Controllers\CategoryController::class,'destroy']
 )->name('category.destroy');
+
+Route::resource('product', App\Http\Controllers\ProductController::class);
